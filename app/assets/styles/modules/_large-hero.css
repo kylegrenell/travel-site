@@ -8,12 +8,17 @@
   /*by default browsers treat img elements as inline level elements --> thinks similar to line of text, so adds padding/space for letters that hang below the rule. Block treats as div, a rectangle that can align perfectly(no extra room)  */
 
   &__text-content {
+    padding-top: 88px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 0;
     width: 100%;
     text-align: center;
+
+    @mixin atMedium {
+      padding-top: 60px;
+    }
   }
 
   &__title {
