@@ -1,7 +1,7 @@
 import disMobileThang from './modules/mobileMenu';
 import RevealOnScroll from './modules/revealOnScroll';
 import $ from 'jquery';
-import StickyHeader from './modules/StickyHeader';
+import StickyHeader from './modules/stickyHeader';
 
 let mobileMenu = new disMobileThang();
 new RevealOnScroll($('.feature-item'), '85%');
