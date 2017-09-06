@@ -1,9 +1,9 @@
-import disMobileThang from './modules/mobileMenu';
-import RevealOnScroll from './modules/revealOnScroll';
+import MobileMenu from './modules/MobileMenu';
+import RevealOnScroll from './modules/RevealOnScroll';
 import $ from 'jquery';
-import StickyHeader from './modules/stickyHeader';
+import StickyHeader from './modules/StickyHeader';
 
-let mobileMenu = new disMobileThang();
-new RevealOnScroll($('.feature-item'), '85%');
-new RevealOnScroll($('.testimonial'), '60%');
-let stickyHeader = new StickyHeader();
+var mobileMenu = new MobileMenu();
+new RevealOnScroll($(".feature-item"), "85%");
+new RevealOnScroll($(".testimonial"), "60%");
+var stickyHeader = new StickyHeader();

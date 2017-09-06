@@ -11093,28 +11093,28 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 "use strict";
 
 
-var _mobileMenu = __webpack_require__(3);
+var _MobileMenu = __webpack_require__(3);
 
-var _mobileMenu2 = _interopRequireDefault(_mobileMenu);
+var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
-var _revealOnScroll = __webpack_require__(4);
+var _RevealOnScroll = __webpack_require__(4);
 
-var _revealOnScroll2 = _interopRequireDefault(_revealOnScroll);
+var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
 
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _stickyHeader = __webpack_require__(5);
+var _StickyHeader = __webpack_require__(5);
 
-var _stickyHeader2 = _interopRequireDefault(_stickyHeader);
+var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMenu = new _mobileMenu2.default();
-new _revealOnScroll2.default((0, _jquery2.default)('.feature-item'), '85%');
-new _revealOnScroll2.default((0, _jquery2.default)('.testimonial'), '60%');
-var stickyHeader = new _stickyHeader2.default();
+var mobileMenu = new _MobileMenu2.default();
+new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%");
+new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "60%");
+var stickyHeader = new _StickyHeader2.default();
 
 /***/ }),
 /* 3 */
@@ -11141,20 +11141,19 @@ var MobileMenu = function () {
   function MobileMenu() {
     _classCallCheck(this, MobileMenu);
 
-    this.siteHeader = (0, _jquery2.default)('.site-header');
-    this.menuIcon = (0, _jquery2.default)('.site-header__menu-icon');
+    this.siteHeader = (0, _jquery2.default)(".site-header");
+    this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
     this.menuContent = (0, _jquery2.default)(".site-header__menu-content");
     this.events();
   }
 
   _createClass(MobileMenu, [{
-    key: 'events',
+    key: "events",
     value: function events() {
       this.menuIcon.click(this.toggleTheMenu.bind(this));
-      // console.log(this);
     }
   }, {
-    key: 'toggleTheMenu',
+    key: "toggleTheMenu",
     value: function toggleTheMenu() {
       this.menuContent.toggleClass("site-header__menu-content--is-visible");
       this.siteHeader.toggleClass("site-header--is-expanded");
@@ -11193,10 +11192,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var RevealOnScroll = function () {
-  function RevealOnScroll(elements, offset) {
+  function RevealOnScroll(els, offset) {
     _classCallCheck(this, RevealOnScroll);
 
-    this.itemsToReveal = elements;
+    this.itemsToReveal = els;
     this.offsetPercentage = offset;
     this.hideInitially();
     this.createWaypoints();
@@ -11205,7 +11204,7 @@ var RevealOnScroll = function () {
   _createClass(RevealOnScroll, [{
     key: 'hideInitially',
     value: function hideInitially() {
-      this.itemsToReveal.addClass('reveal-item');
+      this.itemsToReveal.addClass("reveal-item");
     }
   }, {
     key: 'createWaypoints',
@@ -11216,7 +11215,7 @@ var RevealOnScroll = function () {
         new Waypoint({
           element: currentItem,
           handler: function handler() {
-            (0, _jquery2.default)(currentItem).addClass('reveal-item--is-visible');
+            (0, _jquery2.default)(currentItem).addClass("reveal-item--is-visible");
           },
           offset: that.offsetPercentage
         });
@@ -11262,11 +11261,11 @@ var StickyHeader = function () {
   function StickyHeader() {
     _classCallCheck(this, StickyHeader);
 
-    this.siteHeader = (0, _jquery2.default)('.site-header');
-    this.headerTriggerElement = (0, _jquery2.default)('.large-hero__title');
+    this.siteHeader = (0, _jquery2.default)(".site-header");
+    this.headerTriggerElement = (0, _jquery2.default)(".large-hero__title");
     this.createHeaderWaypoint();
-    this.pageSections = (0, _jquery2.default)('.page-section');
-    this.headerLinks = (0, _jquery2.default)('.primary-nav a');
+    this.pageSections = (0, _jquery2.default)(".page-section");
+    this.headerLinks = (0, _jquery2.default)(".primary-nav a");
     this.createPageSectionWaypoints();
     this.addSmoothScrolling();
   }
@@ -11283,10 +11282,10 @@ var StickyHeader = function () {
       new Waypoint({
         element: this.headerTriggerElement[0],
         handler: function handler(direction) {
-          if (direction == 'down') {
-            that.siteHeader.addClass('site-header--dark');
+          if (direction == "down") {
+            that.siteHeader.addClass("site-header--dark");
           } else {
-            that.siteHeader.removeClass('site-header--dark');
+            that.siteHeader.removeClass("site-header--dark");
           }
         }
       });
@@ -11300,25 +11299,25 @@ var StickyHeader = function () {
         new Waypoint({
           element: currentPageSection,
           handler: function handler(direction) {
-            if (direction == 'down') {
-              var matchingHeaderLink = currentPageSection.getAttribute('data-matching-link');
-              that.headerLinks.removeClass('is-current-link');
-              (0, _jquery2.default)(matchingHeaderLink).addClass('is-current-link');
+            if (direction == "down") {
+              var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+              that.headerLinks.removeClass("is-current-link");
+              (0, _jquery2.default)(matchingHeaderLink).addClass("is-current-link");
             }
           },
-          offset: '18%'
+          offset: "18%"
         });
 
         new Waypoint({
           element: currentPageSection,
           handler: function handler(direction) {
-            if (direction == 'up') {
-              var matchingHeaderLink = currentPageSection.getAttribute('data-matching-link');
-              that.headerLinks.removeClass('is-current-link');
-              (0, _jquery2.default)(matchingHeaderLink).addClass('is-current-link');
+            if (direction == "up") {
+              var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+              that.headerLinks.removeClass("is-current-link");
+              (0, _jquery2.default)(matchingHeaderLink).addClass("is-current-link");
             }
           },
-          offset: '-40%'
+          offset: "-40%"
         });
       });
     }
